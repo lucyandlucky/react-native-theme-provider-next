@@ -4,18 +4,24 @@ import deepmerge from 'deepmerge';
 import type { ThemeProviderType } from './createThemeProvider';
 import createThemeProvider from './createThemeProvider';
 import type { DeepPartial } from '../types';
+import type { WithThemeType } from './createWithTheme';
+import createWithTheme from './createWithTheme';
 
 export type ThemingType<T> = {
   ThemeContext: React.Context<T>;
   ThemeProvider: ThemeProviderType<T>;
   useTheme: (override?: any) => T;
+  withTheme: WithThemeType<T>;
 };
 
 export default function createTheming<T extends Object>(
   defaultTheme: T
 ): ThemingType<T> {
   const ThemeContext = React.createContext(defaultTheme);
+
   const ThemeProvider = createThemeProvider(defaultTheme, ThemeContext);
+
+  const withTheme = createWithTheme(ThemeProvider, ThemeContext);
 
   const useTheme = (overrides?: DeepPartial<T>): T => {
     const theme = React.useContext(ThemeContext);
@@ -35,5 +41,6 @@ export default function createTheming<T extends Object>(
     ThemeContext,
     ThemeProvider,
     useTheme,
+    withTheme,
   };
 }

@@ -20,7 +20,21 @@ describe('createTheming', () => {
   //   secondaryColor: '#ffffff',
   // };
 
-  const { ThemeProvider, useTheme } = createTheming(darkTheme);
+  const { ThemeProvider, useTheme, withTheme } = createTheming(darkTheme);
+
+  it('provides theme prop with HOC', () => {
+    const PropsChecker = withTheme(({ theme }) => {
+      expect(typeof theme).toBe('object');
+      expect(theme).toEqual(darkTheme);
+      return null;
+    });
+
+    render(
+      <ThemeProvider>
+        <PropsChecker />
+      </ThemeProvider>
+    );
+  });
 
   it('provides theme with hook', () => {
     const PropsChecker = (props: any) => {

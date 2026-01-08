@@ -13,7 +13,7 @@ export type WithThemeType<T> = <P extends { theme?: T }>(
 const createWithTheme = <T extends object>(
   ThemeProvider: ThemeProviderType<T>,
   ThemeContext: React.Context<T>
-) => {
+): WithThemeType<T> => {
   function withTheme<P extends { theme?: T }>(Comp: React.ComponentType<P>) {
     type Props = Omit<P, 'theme'> & {
       theme?: DeepPartial<T>;
