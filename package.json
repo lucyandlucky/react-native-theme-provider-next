@@ -157,5 +157,8 @@
       "eslint"
     ],
     "version": "0.56.0"
+  },
+  "dependencies": {
+    "deepmerge": "^4.3.1"
   }
 }
