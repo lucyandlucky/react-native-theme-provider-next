@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { render } from '@testing-library/react-native';
 
 import createTheming from '../provider/createTheming';
