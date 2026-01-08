@@ -38,7 +38,8 @@
     "typecheck": "tsc",
     "release": "release-it --only-version",
     "test": "jest",
-    "lint": "eslint \"**/*.{js,ts,tsx}\""
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "watch": "nodemon --ignore dist/ --ignore node_modules/ --ignore lib/ --watch src/ -C -e js,jsx,ts,tsx,css,less -x 'yarn prepare && yalc push'"
   },
   "keywords": [
     "react-native",
