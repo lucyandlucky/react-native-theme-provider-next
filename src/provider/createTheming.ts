@@ -10,7 +10,7 @@ import createWithTheme from './createWithTheme';
 export type ThemingType<T> = {
   ThemeContext: React.Context<T>;
   ThemeProvider: ThemeProviderType<T>;
-  useTheme: (override?: any) => T;
+  useTheme: (override?: DeepPartial<T>) => T;
   withTheme: WithThemeType<T>;
 };
 

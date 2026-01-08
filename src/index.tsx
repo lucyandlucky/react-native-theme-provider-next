@@ -1,9 +1,7 @@
-function multiply(a: number, b: number): number {
-  return a + b;
-}
+import createTheming from './provider/createTheming';
 
-function add(a: number, b: number): number {
-  return a + b;
-}
+export { createTheming };
 
-export { multiply, add };
+export type { ThemingType } from './provider/createTheming';
+
+export * from './types';
