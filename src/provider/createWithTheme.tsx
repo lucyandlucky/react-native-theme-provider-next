@@ -8,7 +8,10 @@ import type { DeepPartial } from './types';
 
 export type WithThemeType<T> = <P extends { theme?: T }>(
   Comp: React.ComponentType<P>
-) => React.ComponentType<Omit<P, 'theme'> & { theme?: DeepPartial<T> }>;
+) => React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<Omit<P, 'theme'> & { theme?: DeepPartial<T> }> &
+    React.RefAttributes<any>
+>;
 
 const createWithTheme = <T extends object>(
   ThemeProvider: ThemeProviderType<T>,
