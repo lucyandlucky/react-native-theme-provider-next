@@ -1,6 +1,7 @@
 import createTheming from './provider/createTheming';
+import deepmerge from 'deepmerge';
 
-export { createTheming };
+export { createTheming, deepmerge };
 
 export type { ThemingType } from './provider/createTheming';
 
